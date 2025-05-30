@@ -34,11 +34,10 @@
 </head>
 
 <body>
-    <img src="image/cupNBG.png"
-        width="50" height="50" alt="Ian Codding II" border="0" class="inline-elements">
+    <img src="image/cupNBG.png" width="50" height="50" alt="Ian Codding II" border="0" class="inline-elements">
     <div class="custom-label inline-elements">Coding Codding</div>
 
-    <div class="inline-elements" align-items="center" id="searchbar-placeholder"></div>
+    <div id="searchbar-placeholder" class="inline-block"></div>
 
     <script>
         fetch('searchbar.html')
@@ -47,6 +46,7 @@
                 document.getElementById('searchbar-placeholder').innerHTML = html;
             });
     </script>
+
 
     <header>
         <h1>Welcome to My Website</h1>
@@ -84,4 +84,5 @@
         <p>&copy; 2025 Ian Codding II</p>
     </footer>
 </body>
+
 </html>
