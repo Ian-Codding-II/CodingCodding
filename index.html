@@ -2,92 +2,124 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon"
-        href="https://lh3.googleusercontent.com/a/ACg8ocJvDckju4Facey-9u0y61F4T1ccYaN_vaatml-kRMbjDhBp9w=s360-c-no"
-        type="image/png" />
-    <title>Coding Codding</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon"
+    href="https://lh3.googleusercontent.com/a/ACg8ocJvDckju4Facey-9u0y61F4T1ccYaN_vaatml-kRMbjDhBp9w=s360-c-no"
+    type="image/png" />
+  <title>Coding Codding</title>
 
-    <style>
-        .custom-label {
-            font-family: 'Times New Roman', Times, serif;
-            font-weight: bold;
-            font-style: italic;
-            color: #5e4434;
-            /* Change to your desired color */
-            font-size: 50px;
-            /* Adjust the size as needed */
-        }
-    </style>
-    <style>
-        .inline-elements {
-            display: inline-block;
-        }
-    </style>
-    <style>
-        body {
-            background-color: #ccbfb0;
-            /* light gray or change to any color */
-        }
-    </style>
+  <style>
+    .custom-label {
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      font-style: italic;
+      color: #5e4434;
+      font-size: 50px;
+    }
+
+    .inline-elements {
+      display: inline-block;
+    }
+
+    body {
+      background-color: #ccbfb0;
+    }
+
+    #logo-audio-toggle {
+      cursor: pointer;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    #logo-audio-toggle:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 
 <body>
-    <img src="image/cupNBG.png" width="50" height="50" alt="Ian Codding II" border="0" class="inline-elements">
-    <div class="custom-label inline-elements">Coding Codding</div>
+  <!-- Logo acts as audio toggle -->
+  <img src="image/cupNBG.png"
+    width="50"
+    height="50"
+    alt="Toggle Music"
+    id="logo-audio-toggle"
+    class="inline-elements" />
 
-    <div id="searchbar-placeholder" class="inline-block"></div>
+  <div class="custom-label inline-elements">Coding Codding</div>
 
-    <script>
-        fetch('searchbar.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('searchbar-placeholder').innerHTML = html;
-            });
-    </script>
+  <!-- Search bar placeholder -->
+  <div id="searchbar-placeholder" class="inline-block"></div>
 
+  <script>
+    fetch('searchbar.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('searchbar-placeholder').innerHTML = html;
+      });
+  </script>
 
-    <header>
-        <h1>Welcome to My Website</h1>
-        <p>This is a simple HTML site.</p>
-    </header>
+  <!-- Main content -->
+  <header>
+    <h1>Welcome to My Website</h1>
+    <p>This is a simple HTML site.</p>
+  </header>
 
-    <nav>
-        <a href="#about">About</a> |
-        <a href="#projects">Projects</a> |
-        <a href="#contact">Contact</a>
-    </nav>
+  <nav>
+    <a href="#about">About</a> |
+    <a href="#projects">Projects</a> |
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I'm learning how to build websites using HTML.</p>
-        </section>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Hello! I'm learning how to build websites using HTML.</p>
+    </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <ul>
-                <li>3D Modeling</li>
-                <li>Design Thinking</li>
-                <li>Coding & Problem Solving</li>
-            </ul>
-        </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>3D Modeling</li>
+        <li>Design Thinking</li>
+        <li>Coding & Problem Solving</li>
+      </ul>
+    </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:icodding@nic.edu">icodding@nic.edu</a></p>
-        </section>
-    </main>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:icodding@nic.edu">icodding@nic.edu</a></p>
+    </section>
+  </main>
 
-    <audio autoplay loop hidden>
-        <source src="backGM.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Ian Codding II</p>
+  </footer>
 
-    <footer>
-        <p>&copy; 2025 Ian Codding II</p>
-    </footer>
+  <!-- Music Toggle Script -->
+  <script>
+    let audio = new Audio('backGM.mp3');
+    audio.loop = true;
+    let isPlaying = false;
+
+    const logo = document.getElementById('logo-audio-toggle');
+
+    logo.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio.play().then(() => {
+          isPlaying = true;
+          logo.style.opacity = 0.6; // Visual cue: music playing
+        }).catch(err => {
+          console.warn('Autoplay blocked or failed:', err);
+        });
+      } else {
+        audio.pause();
+        isPlaying = false;
+        logo.style.opacity = 1; // Visual cue: music stopped
+      }
+    });
+  </script>
 </body>
 
 </html>
