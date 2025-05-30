@@ -59,11 +59,19 @@
 
   function submitted(event) {
     event.preventDefault();
-    const url = `${brave}${site}+${encodeURIComponent(q.value.trim())}`;
+    const query = q.value.trim();
+    if (!query) {
+      alert('Please enter a search term.');
+      return;
+    }
+    const url = `${brave}${encodeURIComponent(site)}+${encodeURIComponent(query)}`;
     const win = window.open(url, '_blank');
-    win?.focus();
+    if (!win) {
+      alert('Please allow popups for this site.');
+    } else {
+      win.focus();
+    }
   }
 
   f.addEventListener('submit', submitted);
 </script>
-
