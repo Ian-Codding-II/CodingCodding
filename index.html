@@ -10,7 +10,23 @@
   <title>Coding Codding</title>
 
   <style>
-    /* Logo + music toggle styles */
+    body {
+      background-color: #ccbfb0;
+    }
+
+    .custom-label {
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      font-style: italic;
+      color: #5e4434;
+      font-size: 50px;
+    }
+
+    .inline-elements {
+      display: inline-block;
+    }
+
+    /* Logo glow when music is playing */
     #logo-audio-toggle {
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.3s ease;
@@ -24,28 +40,12 @@
     .playing {
       box-shadow: 0 0 15px 5px gold;
     }
-
-    /* Site branding */
-    .custom-label {
-      font-family: 'Times New Roman', Times, serif;
-      font-weight: bold;
-      font-style: italic;
-      color: #5e4434;
-      font-size: 50px;
-    }
-
-    .inline-elements {
-      display: inline-block;
-    }
-
-    body {
-      background-color: #ccbfb0;
-    }
   </style>
 </head>
 
 <body>
-  <!-- Logo as music toggle -->
+
+  <!-- Logo toggle -->
   <img src="image/cupNBG.png"
     width="50"
     height="50"
@@ -55,7 +55,7 @@
 
   <div class="custom-label inline-elements">Coding Codding</div>
 
-  <!-- Search bar -->
+  <!-- Search bar placeholder -->
   <div id="searchbar-placeholder" class="inline-block"></div>
 
   <script>
@@ -66,7 +66,7 @@
       });
   </script>
 
-  <!-- Main content -->
+  <!-- Page content -->
   <header>
     <h1>Welcome to My Website</h1>
     <p>This is a simple HTML site.</p>
@@ -103,21 +103,55 @@
     <p>&copy; 2025 Ian Codding II</p>
   </footer>
 
-  <!-- Music toggle logic -->
-  <script>
-    const audio = new Audio('backGM.mp3');
-    audio.loop = true;
-    let isPlaying = false;
+  <!-- Hidden audio player -->
+  <audio id="background-audio" hidden></audio>
 
+  <script>
+    const playlist = [
+      'backGM/call-of-the-sea-track-by-brolefilmer-12314.mp3',
+      'backGM/chanson-dx27amour-faure-anneliese-von-koenig-mezzo-125025.mp3',
+      'backGM/cherubino2-noce-di-figaro-mozart-anneliese-von-koenig-mezzo-127457.mp3',
+      'backGM/habanera-carmen-george-bizet-176574.mp3',
+      'backGM/la-mort-ophelia-saint-saens-anneliese-von-koenig-mezzo-125024.mp3',
+      'backGM/les-berceux-faure-anneliese-von-koenig-mezzo-127461.mp3',
+      'backGM/verona-soprano-classic-orchestra-amp-choir-1806.mp3',
+      'backGM/voi-che-sapete-cherubino-figaro-mozart-anneliese-von-koenig-mezzo-127456.mp3'
+    ];
+
+    const audio = document.getElementById('background-audio');
     const logo = document.getElementById('logo-audio-toggle');
 
+    let shuffled = [...playlist];
+    let current = 0;
+    let isPlaying = false;
+
+    // Shuffle helper
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    shuffle(shuffled);
+    audio.src = shuffled[current];
+
+    // Handle song end → next + reshuffle
+    audio.addEventListener('ended', () => {
+      current = (current + 1) % shuffled.length;
+      if (current === 0) shuffle(shuffled);
+      audio.src = shuffled[current];
+      audio.play();
+    });
+
+    // Logo toggles music
     logo.addEventListener('click', () => {
       if (!isPlaying) {
         audio.play().then(() => {
           isPlaying = true;
           logo.classList.add('playing');
         }).catch(err => {
-          console.warn('Autoplay blocked or failed:', err);
+          console.warn('Autoplay blocked:', err);
         });
       } else {
         audio.pause();
@@ -125,6 +159,16 @@
         logo.classList.remove('playing');
       }
     });
+
+    // Optional: Start audio after any click (autoplay fix)
+    document.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio.play().then(() => {
+          isPlaying = true;
+          logo.classList.add('playing');
+        }).catch(() => {});
+      }
+    }, { once: true });
   </script>
 </body>
 
