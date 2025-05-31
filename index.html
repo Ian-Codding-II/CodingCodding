@@ -10,6 +10,22 @@
   <title>Coding Codding</title>
 
   <style>
+    /* Logo + music toggle styles */
+    #logo-audio-toggle {
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      border-radius: 50%;
+    }
+
+    #logo-audio-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    .playing {
+      box-shadow: 0 0 15px 5px gold;
+    }
+
+    /* Site branding */
     .custom-label {
       font-family: 'Times New Roman', Times, serif;
       font-weight: bold;
@@ -25,20 +41,11 @@
     body {
       background-color: #ccbfb0;
     }
-
-    #logo-audio-toggle {
-      cursor: pointer;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-
-    #logo-audio-toggle:hover {
-      transform: scale(1.1);
-    }
   </style>
 </head>
 
 <body>
-  <!-- Logo acts as audio toggle -->
+  <!-- Logo as music toggle -->
   <img src="image/cupNBG.png"
     width="50"
     height="50"
@@ -48,7 +55,7 @@
 
   <div class="custom-label inline-elements">Coding Codding</div>
 
-  <!-- Search bar placeholder -->
+  <!-- Search bar -->
   <div id="searchbar-placeholder" class="inline-block"></div>
 
   <script>
@@ -92,14 +99,13 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Ian Codding II</p>
   </footer>
 
-  <!-- Music Toggle Script -->
+  <!-- Music toggle logic -->
   <script>
-    let audio = new Audio('backGM.mp3');
+    const audio = new Audio('backGM.mp3');
     audio.loop = true;
     let isPlaying = false;
 
@@ -109,14 +115,14 @@
       if (!isPlaying) {
         audio.play().then(() => {
           isPlaying = true;
-          logo.style.opacity = 0.6; // Visual cue: music playing
+          logo.classList.add('playing');
         }).catch(err => {
           console.warn('Autoplay blocked or failed:', err);
         });
       } else {
         audio.pause();
         isPlaying = false;
-        logo.style.opacity = 1; // Visual cue: music stopped
+        logo.classList.remove('playing');
       }
     });
   </script>
