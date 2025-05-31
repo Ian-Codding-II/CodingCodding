@@ -133,10 +133,11 @@
       }
     }
 
+    // Shuffle and load first track
     shuffle(shuffled);
     audio.src = shuffled[current];
 
-    // Handle song end → next + reshuffle
+    // When song ends, go to next and reshuffle if needed
     audio.addEventListener('ended', () => {
       current = (current + 1) % shuffled.length;
       if (current === 0) shuffle(shuffled);
@@ -144,7 +145,7 @@
       audio.play();
     });
 
-    // Logo toggles music
+    // Click logo to play/pause
     logo.addEventListener('click', () => {
       if (!isPlaying) {
         audio.play().then(() => {
@@ -159,16 +160,6 @@
         logo.classList.remove('playing');
       }
     });
-
-    // Optional: Start audio after any click (autoplay fix)
-    document.addEventListener('click', () => {
-      if (!isPlaying) {
-        audio.play().then(() => {
-          isPlaying = true;
-          logo.classList.add('playing');
-        }).catch(() => {});
-      }
-    }, { once: true });
   </script>
 </body>
 
