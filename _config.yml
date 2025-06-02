@@ -1,4 +1,5 @@
 title: Coding Codding
 description: Personal site of Ian Codding II
-baseurl: ""
-url: "https://ian-codding-ii.github.io/CodingCodding/"
+baseurl: "/CodingCodding"
+url: "https://ian-codding-ii.github.io"
+
