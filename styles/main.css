@@ -1,17 +1,31 @@
+/* Base styles */
 body {
   background-color: #ccbfb0;
   font-family: 'Times New Roman', Times, serif;
+
+  /* Center entire layout vertically and horizontally */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
 }
 
+/* Logo and Title */
 .custom-label {
   font-weight: bold;
   font-style: italic;
   color: #5e4434;
   font-size: 50px;
+  margin: 10px 0;
 }
 
 .inline-elements {
   display: inline-block;
+  vertical-align: middle;
 }
 
 #logo-audio-toggle {
@@ -28,6 +42,61 @@ body {
   box-shadow: 0 0 15px 5px gold;
 }
 
+/* Navigation */
 nav {
-  margin: 10px 0;
+  margin: 20px 0;
+}
+
+/* Main content area */
+main {
+  max-width: 900px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #5e4434;
+}
+
+/* Search bar */
+#site-search form {
+  background-color: #e4c594;
+  width: 300px;
+  height: 44px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  margin: 20px auto;
+}
+
+#site-search input {
+  all: unset;
+  font: 16px system-ui;
+  color: #ac792a;
+  height: 100%;
+  width: 100%;
+  padding: 6px 10px;
+}
+
+#site-search ::placeholder {
+  color: #ac792a;
+  opacity: 0.7;
+}
+
+#site-search svg {
+  color: #ac792a;
+  fill: currentColor;
+  width: 24px;
+  height: 24px;
+  padding: 10px;
+}
+
+#site-search button {
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
 }
