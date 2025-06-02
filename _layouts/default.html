@@ -23,16 +23,8 @@
   <!-- Navigation bar -->
   {% include navbar.html %}
 
-  <!-- Search Bar Placeholder -->
-  <div id="searchbar-placeholder"></div>
-  <script>
-    fetch('{{ site.baseurl }}/searchbar.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('searchbar-placeholder').innerHTML = html;
-      });
-  </script>
-
+  <!-- Search Bar -->
+  {% include searchbar.html %}
 
   <!-- Page content injected here -->
   <main>
