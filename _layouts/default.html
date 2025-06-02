@@ -3,19 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ page.title }} | Coding Codding</title>
-  <link rel="icon" href="/image/cupNBG.png" />
-  <link rel="stylesheet" href="/styles/main.css" />
+  <title>{{ page.title }} | {{ site.title }}</title>
+
+  <link rel="icon" href="{{ site.baseurl }}/image/cupNBG.png" />
+  <link rel="stylesheet" href="{{ site.baseurl }}/styles/main.css" />
 </head>
 <body>
-  <img src="/image/cupNBG.png" id="logo-audio-toggle" class="inline-elements" width="50" height="50" />
-  <div class="custom-label inline-elements">Coding Codding</div>
+  <img src="{{ site.baseurl }}/image/cupNBG.png"
+       id="logo-audio-toggle"
+       class="inline-elements"
+       width="50"
+       height="50"
+       alt="Toggle Music" />
+
+  <div class="custom-label inline-elements">{{ site.title }}</div>
 
   {% include navbar.html %}
 
   <div id="searchbar-placeholder"></div>
   <script>
-    fetch('/searchbar.html')
+    fetch('{{ site.baseurl }}/searchbar.html')
       .then(res => res.text())
       .then(html => {
         document.getElementById('searchbar-placeholder').innerHTML = html;
@@ -31,9 +38,10 @@
   </footer>
 
   <audio id="background-audio" hidden></audio>
-  <script src="/scripts/music-toggle.js"></script>
+  <script src="{{ site.baseurl }}/scripts/music-toggle.js"></script>
 </body>
 </html>
+
 
 
 
