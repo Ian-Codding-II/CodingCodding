@@ -12,55 +12,29 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ site.baseurl }}/styles/main.css" />
-
-  <style>
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      background-color: #e4c594;
-    }
-
-    #logo-section {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    #logo-section img {
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-    }
-
-    #logo-section .site-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #ac792a;
-    }
-
-    #searchbar {
-      max-width: 300px;
-      width: 100%;
-    }
-  </style>
 </head>
 
 <body>
-  <header>
-    <div id="logo-section">
-      <img src="{{ site.baseurl }}/image/cupNBG.png" id="logo-audio-toggle" alt="Toggle Music" />
-      <div class="site-title">{{ site.title }}</div>
-    </div>
-
-    <div id="searchbar">
-      {% include searchbar.html %}
-    </div>
-  </header>
+  <!-- Logo and Title -->
+  <img src="{{ site.baseurl }}/image/cupNBG.png" id="logo-audio-toggle" class="inline-elements" width="50" height="50"
+    alt="Toggle Music" />
+  <div class="custom-label inline-elements">{{ site.title }}</div>
 
   <!-- Navigation bar -->
   {% include navbar.html %}
+
+  <!-- Search Bar Placeholder -->
+   {% include searchbar.html %}
+
+  <div id="searchbar-placeholder"></div>
+  <script>
+    fetch('{{ site.baseurl }}/searchbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('searchbar-placeholder').innerHTML = html;
+      });
+  </script>
+
 
   <!-- Page content injected here -->
   <main>
