@@ -1,10 +1,8 @@
 ---
 layout: null
-permalink: /search.json
 ---
-
 [
-{% assign pages = site.pages | where_exp: "page", "page.title" %}
+{% assign pages = site.pages | where_exp: "page", "page.search_exclude != true" %}
 {% for page in pages %}
   {
     "title": {{ page.title | jsonify }},
