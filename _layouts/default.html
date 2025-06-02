@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <!-- Responsive Header -->
+  <!-- Header with logo, name, and search -->
   <header class="topbar">
     <div class="logo-title">
       <img src="{{ site.baseurl }}/image/cupNBG.png" alt="Logo" class="logo" />
@@ -26,10 +26,15 @@
     </div>
   </header>
 
-  <!-- Navigation -->
-  {% include navbar.html %}
+  <!-- Navigation bar -->
+  <nav class="main-nav">
+    {% include navbar.html %}
+  </nav>
 
-  <!-- Page content -->
+  <!-- Line separator -->
+  <hr class="nav-separator" />
+
+  <!-- Main content -->
   <main>
     {{ content }}
   </main>
@@ -39,6 +44,7 @@
     <p>&copy; 2025 Ian Codding II</p>
   </footer>
 
+  <!-- Hidden audio player -->
   <audio id="background-audio" hidden></audio>
   <script src="{{ site.baseurl }}/scripts/music-toggle.js"></script>
 </body>

@@ -1,13 +1,23 @@
-/* Topbar layout */
+/* Full page background */
+body {
+  background-color: #ccbfb0;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header layout */
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #e4c594;
   padding: 10px 20px;
-  flex-wrap: wrap;
+  gap: 10px;
+  flex-wrap: nowrap;
 }
 
+/* Logo and title area */
 .logo-title {
   display: flex;
   align-items: center;
@@ -21,25 +31,31 @@
 }
 
 .site-name {
-  font-size: 1.5rem;
+  font-size: 2rem; /* Similar size as logo */
   font-weight: bold;
   color: #5e4434;
 }
 
-/* Make search bar responsive */
+/* Responsive search bar */
 .searchbar-container {
-  flex-grow: 1;
+  flex: 1;
   max-width: 300px;
+  min-width: 100px;
 }
 
-@media (max-width: 600px) {
-  .topbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.searchbar-container form {
+  width: 100%;
+}
 
-  .searchbar-container {
-    width: 100%;
-    margin-top: 10px;
-  }
+/* Navbar and separator */
+.main-nav {
+  padding: 10px 20px;
+  background-color: #ccbfb0;
+}
+
+.nav-separator {
+  border: none;
+  height: 2px;
+  background-color: #5e4434;
+  margin: 0;
 }
