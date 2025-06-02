@@ -1,0 +1,35 @@
+---
+layout: default
+title: Search
+---
+
+<h2>Search</h2>
+<input type="text" id="search-box" placeholder="Search..." />
+<ul id="results"></ul>
+
+<script>
+  fetch('{{ site.baseurl }}/search.json')
+    .then(res => res.json())
+    .then(pages => {
+      const idx = lunr(function () {
+        this.ref('url')
+        this.field('title')
+        this.field('content')
+
+        pages.forEach(page => this.add(page))
+      })
+
+      document.getElementById('search-box').addEventListener('input', e => {
+        const query = e.target.value
+        const results = idx.search(query)
+        const resultList = document.getElementById('results')
+        resultList.innerHTML = ''
+        results.forEach(result => {
+          const page = pages.find(p => p.url === result.ref)
+          const li = document.createElement('li')
+          li.innerHTML = `<a href="${page.url}">${page.title}</a>`
+          resultList.appendChild(li)
+        })
+      })
+    })
+</script>
