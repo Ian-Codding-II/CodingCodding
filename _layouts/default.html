@@ -1,18 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }} | Coding Codding</title>
+  <link rel="icon" href="/image/cupNBG.png" />
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
 <body>
-  <img src="/image/cupNBG.png" id="logo-audio-toggle" />
-  <div class="custom-label">Coding Codding</div>
+  <img src="/image/cupNBG.png" id="logo-audio-toggle" class="inline-elements" width="50" height="50" />
+  <div class="custom-label inline-elements">Coding Codding</div>
 
   {% include navbar.html %}
+
+  <div id="searchbar-placeholder"></div>
+  <script>
+    fetch('/searchbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('searchbar-placeholder').innerHTML = html;
+      });
+  </script>
 
   <main>
     {{ content }}
   </main>
 
-  <footer>&copy; 2025 Ian Codding II</footer>
+  <footer>
+    <p>&copy; 2025 Ian Codding II</p>
+  </footer>
 
   <audio id="background-audio" hidden></audio>
   <script src="/scripts/music-toggle.js"></script>
 </body>
+</html>
+
 
 
 
