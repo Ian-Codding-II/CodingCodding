@@ -35,21 +35,3 @@ nav {
 
 
 
-body {
-  background-color: #ccbfb0;
-  font-family: 'Times New Roman', Times, serif;
-
-  /* Center main content */
-  display: flex;
-  justify-content: center; /* horizontal center */
-  align-items: center;     /* vertical center */
-  min-height: 100vh;
-  margin: 0;
-  flex-direction: column;  /* stack elements vertically */
-}
-
-main {
-  max-width: 900px;
-  width: 100%;
-  padding: 20px;
-}
