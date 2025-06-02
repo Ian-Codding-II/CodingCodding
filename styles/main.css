@@ -1,6 +1,6 @@
 /* Full page background */
 body {
-  background-color: #ccbfb0;
+  background-color: #e4c594;
   font-family: 'Times New Roman', Times, serif;
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #e4c594;
+  background-color: #ac792a;
   padding: 10px 20px;
   gap: 10px;
   flex-wrap: nowrap;
@@ -31,7 +31,7 @@ body {
 }
 
 .site-name {
-  font-size: 2rem; /* Similar size as logo */
+  font-size: 3rem; /* Similar size as logo */
   font-weight: bold;
   color: #5e4434;
 }
@@ -50,7 +50,7 @@ body {
 /* Navbar and separator */
 .main-nav {
   padding: 10px 20px;
-  background-color: #ccbfb0;
+  background-color: #e4c594;
 }
 
 .nav-separator {
