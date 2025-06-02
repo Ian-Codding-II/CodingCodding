@@ -5,21 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ page.title }} | {{ site.title }}</title>
 
+  <!-- Favicon -->
   <link rel="icon" href="{{ site.baseurl }}/image/cupNBG.png" />
+
+  <!-- Styles -->
   <link rel="stylesheet" href="{{ site.baseurl }}/styles/main.css" />
 </head>
 <body>
+  <!-- Logo and Title -->
   <img src="{{ site.baseurl }}/image/cupNBG.png"
        id="logo-audio-toggle"
        class="inline-elements"
        width="50"
        height="50"
        alt="Toggle Music" />
-
   <div class="custom-label inline-elements">{{ site.title }}</div>
 
+  <!-- Navigation bar -->
   {% include navbar.html %}
 
+  <!-- Search Bar Placeholder -->
   <div id="searchbar-placeholder"></div>
   <script>
     fetch('{{ site.baseurl }}/searchbar.html')
@@ -29,18 +34,22 @@
       });
   </script>
 
+  <!-- Page content injected here -->
   <main>
     {{ content }}
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Ian Codding II</p>
   </footer>
 
+  <!-- Hidden audio player + script -->
   <audio id="background-audio" hidden></audio>
   <script src="{{ site.baseurl }}/scripts/music-toggle.js"></script>
 </body>
 </html>
+
 
 
 
