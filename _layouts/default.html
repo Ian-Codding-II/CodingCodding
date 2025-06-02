@@ -7,34 +7,30 @@
   <title>{{ page.title }} | {{ site.title }}</title>
 
   <!-- Favicon -->
-  <link rel="icon"
-    href="https://lh3.googleusercontent.com/a/ACg8ocJvDckju4Facey-9u0y61F4T1ccYaN_vaatml-kRMbjDhBp9w=s360-c-no" />
+  <link rel="icon" href="https://lh3.googleusercontent.com/a/ACg8ocJvDckju4Facey-9u0y61F4T1ccYaN_vaatml-kRMbjDhBp9w=s360-c-no" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ site.baseurl }}/styles/main.css" />
 </head>
 
 <body>
-  <!-- Header with logo, name, and search -->
+  <!-- Top bar: logo, title, nav, search -->
   <header class="topbar">
     <div class="logo-title">
-      <img src="{{ site.baseurl }}/image/cupNBG.png" alt="Logo" class="logo" />
+      <img src="{{ site.baseurl }}/image/cupNBG.png" alt="Logo" class="logo" id="logo-audio-toggle" />
       <span class="site-name">{{ site.title }}</span>
     </div>
+
+    <nav class="main-nav">
+      {% include navbar.html %}
+    </nav>
+
     <div class="searchbar-container">
       {% include searchbar.html %}
     </div>
   </header>
 
-  <!-- Navigation bar -->
-  <nav class="main-nav">
-    {% include navbar.html %}
-  </nav>
-
-  <!-- Line separator -->
-  <hr class="nav-separator" />
-
-  <!-- Main content -->
+  <!-- Page content -->
   <main>
     {{ content }}
   </main>
@@ -44,7 +40,7 @@
     <p>&copy; 2025 Ian Codding II</p>
   </footer>
 
-  <!-- Hidden audio player -->
+  <!-- Background audio -->
   <audio id="background-audio" hidden></audio>
   <script src="{{ site.baseurl }}/scripts/music-toggle.js"></script>
 </body>
