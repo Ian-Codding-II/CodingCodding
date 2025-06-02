@@ -15,7 +15,7 @@ title: Search
     return urlParams.get(param);
   }
 
-  fetch('{{ site.baseurl }}/search.json')
+fetch('search.json')
     .then(res => res.json())
     .then(pages => {
       const idx = lunr(function () {
