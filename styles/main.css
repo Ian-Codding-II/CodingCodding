@@ -1,0 +1,33 @@
+body {
+  background-color: #ccbfb0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.custom-label {
+  font-weight: bold;
+  font-style: italic;
+  color: #5e4434;
+  font-size: 50px;
+}
+
+.inline-elements {
+  display: inline-block;
+}
+
+#logo-audio-toggle {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  border-radius: 50%;
+}
+
+#logo-audio-toggle:hover {
+  transform: scale(1.1);
+}
+
+.playing {
+  box-shadow: 0 0 15px 5px gold;
+}
+
+nav {
+  margin: 10px 0;
+}
