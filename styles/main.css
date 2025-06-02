@@ -15,7 +15,12 @@ body {
 
 /* Ensure main grows to fill available space */
 main {
-  flex: 1;
+  flex: 1;               /* fills available vertical space */
+  display: flex;         /* use flexbox */
+  justify-content: center; /* center horizontally */
+  align-items: center;     /* center vertically */
+  text-align: center;      /* center text inside main */
+  padding: 20px;           /* optional spacing */
 }
 
 /* Top bar layout */
