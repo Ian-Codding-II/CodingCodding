@@ -15,20 +15,22 @@
 
 <body>
   <!-- Top bar: logo, title, nav, search -->
-  <header class="topbar">
-    <div class="logo-title">
-      <img src="{{ site.baseurl }}/image/cupNBG.png" alt="Logo" class="logo" id="logo-audio-toggle" />
+<header class="topbar">
+  <div class="logo-title">
+    <img src="{{ site.baseurl }}/image/cupNBG.png" alt="Logo" class="logo" id="logo-audio-toggle" />
+    <div class="title-nav">
       <span class="site-name">{{ site.title }}</span>
+      <nav class="main-nav">
+        {% include navbar.html %}
+      </nav>
     </div>
+  </div>
 
-    <nav class="main-nav">
-      {% include navbar.html %}
-    </nav>
+  <div class="searchbar-container">
+    {% include searchbar.html %}
+  </div>
+</header>
 
-    <div class="searchbar-container">
-      {% include searchbar.html %}
-    </div>
-  </header>
 
   <!-- Page content -->
   <main>

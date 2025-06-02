@@ -29,14 +29,21 @@ main {
   gap: 10px;
 }
 
-/* Logo and site title */
+/* Logo and site title with nav stacked vertically */
 .logo-title {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* align top */
   gap: 12px;
   flex-shrink: 0;
 }
 
+/* Stack site name and nav vertically */
+.title-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo */
 .logo {
   width: 40px;
   height: 40px;
@@ -44,11 +51,13 @@ main {
   cursor: pointer;
 }
 
+/* Site name */
 .site-name {
   font-size: clamp(1.5rem, 3vw, 2.2rem); /* Resizes smoothly */
   font-weight: bold;
   color: #5e4434; /* Dark chocolate */
   white-space: nowrap;
+  margin-bottom: 4px;
 }
 
 /* Navigation bar inside top bar */
@@ -57,6 +66,7 @@ main {
   flex-wrap: wrap;
   gap: 15px;
   background: none;
+  font-size: 1rem;
 }
 
 .main-nav a {
