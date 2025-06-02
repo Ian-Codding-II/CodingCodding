@@ -15,18 +15,21 @@
 </head>
 
 <body>
-  <!-- Logo and Title -->
-  <img src="{{ site.baseurl }}/image/cupNBG.png" id="logo-audio-toggle" class="inline-elements" width="50" height="50"
-    alt="Toggle Music" />
-  <div class="custom-label inline-elements">{{ site.title }}</div>
+  <!-- Responsive Header -->
+  <header class="topbar">
+    <div class="logo-title">
+      <img src="{{ site.baseurl }}/image/cupNBG.png" alt="Logo" class="logo" />
+      <span class="site-name">{{ site.title }}</span>
+    </div>
+    <div class="searchbar-container">
+      {% include searchbar.html %}
+    </div>
+  </header>
 
-  <!-- Navigation bar -->
+  <!-- Navigation -->
   {% include navbar.html %}
 
-  <!-- Search Bar -->
-  {% include searchbar.html %}
-
-  <!-- Page content injected here -->
+  <!-- Page content -->
   <main>
     {{ content }}
   </main>
@@ -36,7 +39,6 @@
     <p>&copy; 2025 Ian Codding II</p>
   </footer>
 
-  <!-- Hidden audio player + script -->
   <audio id="background-audio" hidden></audio>
   <script src="{{ site.baseurl }}/scripts/music-toggle.js"></script>
 </body>
