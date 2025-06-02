@@ -1,9 +1,21 @@
-/* Full page background */
+/* Make the page take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Full page background and layout */
 body {
   background-color: #e4c594; /* Light tan */
   font-family: 'Times New Roman', Times, serif;
-  margin: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure main grows to fill available space */
+main {
+  flex: 1;
 }
 
 /* Top bar layout */
@@ -88,10 +100,10 @@ body {
   opacity: 0.7;
 }
 
-/* Footer styling */
+/* Footer styling - pinned to bottom */
 footer {
-  text-align: center;
   padding: 20px;
   color: #5e4434;
   font-size: 0.9rem;
+  text-align: left;
 }
