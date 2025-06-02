@@ -12,19 +12,42 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ site.baseurl }}/styles/main.css" />
+
+  <style>
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    #logo-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #searchbar {
+      max-width: 300px;
+      width: 100%;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Logo and Title -->
-  <img src="{{ site.baseurl }}/image/cupNBG.png" id="logo-audio-toggle" class="inline-elements" width="50" height="50"
-    alt="Toggle Music" />
-  <div class="custom-label inline-elements">{{ site.title }}</div>
+  <!-- Header with logo + title + search -->
+  <header>
+    <div id="logo-section">
+      <img src="{{ site.baseurl }}/image/cupNBG.png" id="logo-audio-toggle" class="inline-elements" alt="Toggle Music" />
+      <div class="custom-label">{{ site.title }}</div>
+    </div>
+    <div id="searchbar">
+      {% include searchbar.html %}
+    </div>
+  </header>
 
   <!-- Navigation bar -->
   {% include navbar.html %}
-
-  <!-- Search Bar -->
-  {% include searchbar.html %}
 
   <!-- Page content injected here -->
   <main>
