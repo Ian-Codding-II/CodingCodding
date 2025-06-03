@@ -77,16 +77,21 @@ main {
 
 /* Remove underline from individual links */
 .main-nav a {
-  color: #5e4434; /* Matches title color */
+  color: #5e4434;
   font-weight: bold;
   text-decoration: none;
-  padding-bottom: 2px; /* spacing without underline */
-  transition: color 0.3s;
+  border-bottom: 2px solid transparent; /* initially transparent */
+  padding-bottom: 2px;
+  transition: border-color 0.3s, color 0.3s;
+  position: relative;
+  z-index: 1; /* make sure it's above the bar */
 }
 
 .main-nav a:hover {
+  border-color: #fff; /* lights up just that segment */
   color: #fff;
 }
+
 
 /* Search bar styles */
 .searchbar-container {
