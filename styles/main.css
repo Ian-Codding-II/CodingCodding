@@ -19,7 +19,7 @@ body {
 main {
   flex: 1;
   /* fills available vertical space */
-  display: flex;
+  /*display: flex;
   /* use flexbox */
   /*
   justify-content: center; /* center horizontally 
