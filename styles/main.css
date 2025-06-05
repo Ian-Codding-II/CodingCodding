@@ -1,5 +1,6 @@
 /* Make the page take full height */
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -7,7 +8,8 @@ html, body {
 
 /* Full page background and layout */
 body {
-  background-color: #e4c594; /* Light tan */
+  background-color: #e4c594;
+  /* Light tan */
   font-family: 'Times New Roman', Times, serif;
   display: flex;
   flex-direction: column;
@@ -15,14 +17,17 @@ body {
 
 /* Ensure main grows to fill available space and center content */
 main {
-  flex: 1;                 /* fills available vertical space */
-  display: flex;           /* use flexbox */
+  flex: 1;
+  /* fills available vertical space */
+  display: flex;
+  /* use flexbox */
   /*
   justify-content: center; /* center horizontally 
   align-items: center;     /* center vertically 
   text-align: center;      /* center text inside main 
   */
-  padding: 20px;           /* optional spacing */
+  padding: 20px;
+  /* optional spacing */
 }
 
 /* Top bar layout */
@@ -32,9 +37,11 @@ main {
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 10px 20px;
-  background-color: #ac792a; /* Golden brown */
+  background-color: #ac792a;
+  /* Golden brown */
   gap: 10px;
-  border-bottom: 2px solid #5e4434; /* Consistent underline */
+  border-bottom: 2px solid #5e4434;
+  /* Consistent underline */
 }
 
 /* Logo and site title */
@@ -61,9 +68,11 @@ main {
 
 /* Site name */
 .site-name {
-  font-size: clamp(1.5rem, 3vw, 2.2rem); /* Resizes smoothly */
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  /* Resizes smoothly */
   font-weight: bold;
-  color: #5e4434; /* Dark chocolate */
+  color: #5e4434;
+  /* Dark chocolate */
   white-space: nowrap;
   margin-bottom: 4px;
 }
@@ -82,15 +91,18 @@ main {
   color: #5e4434;
   font-weight: bold;
   text-decoration: none;
-  border-bottom: 2px solid transparent; /* initially transparent */
+  border-bottom: 2px solid transparent;
+  /* initially transparent */
   padding-bottom: 2px;
   transition: border-color 0.3s, color 0.3s;
   position: relative;
-  z-index: 1; /* make sure it's above the bar */
+  z-index: 1;
+  /* make sure it's above the bar */
 }
 
 .main-nav a:hover {
-  border-color: #fff; /* lights up just that segment */
+  border-color: #fff;
+  /* lights up just that segment */
   color: #fff;
 }
 
@@ -163,8 +175,17 @@ main {
   }
 
   .searchbar-container form {
+    flex: 1;
+    min-width: 100px;
+    max-width: 100%;
+    /* new: ensures it doesn't overflow the container */
+    display: flex;
+    background-color: #e4c594;
     height: 36px;
+    border-radius: 5px;
+    align-items: center;
   }
+
 
   .searchbar-container input[type="search"] {
     font-size: 0.9rem;
