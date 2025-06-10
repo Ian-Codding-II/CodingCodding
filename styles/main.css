@@ -146,7 +146,8 @@ main {
 
 /* Icon-only fallback: hidden by default */
 .searchbar-icon {
-  display: none; /* Hidden by default — shown via media query */
+  display: flex;
+  display: none;
   all: unset;
   cursor: pointer;
   width: 44px;
@@ -184,14 +185,16 @@ main {
     max-width: 100%;
   }
 
-  /* Hide full search form */
+  /* Show only the icon version */
   .searchbar-full {
     display: none;
   }
 
-  /* Show icon-only search */
   .searchbar-icon {
     display: flex;
+  }
+
+  .searchbar-icon {
     width: 36px;
     height: 36px;
   }
