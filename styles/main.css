@@ -74,7 +74,7 @@ main {
   font-weight: bold;
   text-decoration: none;
   border-bottom: 2px solid transparent;
-  padding-bottom: 2px;
+  padding-bottom: 0px;
   transition: border-color 0.3s, color 0.3s;
   position: relative;
   z-index: 1;
