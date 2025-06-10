@@ -68,11 +68,10 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
-  background: none;
   font-size: 1rem;
 }
 
-/* Remove underline from individual links */
+/* Remove underline from individual nav links */
 .main-nav a {
   color: #5e4434;
   font-weight: bold;
@@ -89,7 +88,7 @@ main {
   color: #fff;
 }
 
-/* Search bar container */
+/* Search bar container layout */
 .searchbar-container {
   display: flex;
   justify-content: flex-end;
@@ -99,7 +98,7 @@ main {
   max-width: 300px;
 }
 
-/* Full search form (default shown) */
+/* Full search form - visible on wide screens */
 .searchbar-full {
   display: flex;
   background-color: #e4c594;
@@ -144,14 +143,13 @@ main {
   height: 24px;
 }
 
-/* Icon-only fallback: hidden by default */
+/* Icon-only search link - hidden on large screens */
 .searchbar-icon {
-  display: none;
+  display: none; /* Only appears below 600px via media query */
   all: unset;
   cursor: pointer;
   width: 44px;
   height: 44px;
-  display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
@@ -170,7 +168,7 @@ main {
   background-color: #d4b07c;
 }
 
-/* Responsive tweaks */
+/* Responsive tweaks for small screens */
 @media (max-width: 600px) {
   .site-name {
     font-size: 1.4rem;
@@ -185,16 +183,12 @@ main {
     max-width: 100%;
   }
 
-  /* Show only the icon version */
   .searchbar-full {
-    display: none;
+    display: none; /* Hide full form */
   }
 
   .searchbar-icon {
-    display: flex;
-  }
-
-  .searchbar-icon {
+    display: flex; /* Show icon instead */
     width: 36px;
     height: 36px;
   }
