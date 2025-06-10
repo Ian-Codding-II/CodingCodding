@@ -8,8 +8,7 @@ body {
 
 /* Full page background and layout */
 body {
-  background-color: #e4c594;
-  /* Light tan */
+  background-color: #e4c594; /* Light tan */
   font-family: 'Times New Roman', Times, serif;
   display: flex;
   flex-direction: column;
@@ -18,16 +17,7 @@ body {
 /* Ensure main grows to fill available space and center content */
 main {
   flex: 1;
-  /* fills available vertical space */
-  /*display: flex;
-  /* use flexbox */
-  /*
-  justify-content: center; /* center horizontally 
-  align-items: center;     /* center vertically 
-  text-align: center;      /* center text inside main 
-  */
   padding: 20px;
-  /* optional spacing */
 }
 
 /* Top bar layout */
@@ -37,11 +27,9 @@ main {
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 10px 20px;
-  background-color: #ac792a;
-  /* Golden brown */
+  background-color: #ac792a; /* Golden brown */
   gap: 10px;
-  border-bottom: 2px solid #5e4434;
-  /* Consistent underline */
+  border-bottom: 2px solid #5e4434; /* Consistent underline */
 }
 
 /* Logo and site title */
@@ -68,11 +56,9 @@ main {
 
 /* Site name */
 .site-name {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  /* Resizes smoothly */
+  font-size: clamp(1.5rem, 3vw, 2.2rem); /* Resizes smoothly */
   font-weight: bold;
-  color: #5e4434;
-  /* Dark chocolate */
+  color: #5e4434; /* Dark chocolate */
   white-space: nowrap;
   margin-bottom: 4px;
 }
@@ -92,40 +78,39 @@ main {
   font-weight: bold;
   text-decoration: none;
   border-bottom: 2px solid transparent;
-  /* initially transparent */
   padding-bottom: 2px;
   transition: border-color 0.3s, color 0.3s;
   position: relative;
   z-index: 1;
-  /* make sure it's above the bar */
 }
 
 .main-nav a:hover {
   border-color: #fff;
-  /* lights up just that segment */
   color: #fff;
 }
 
-/* Search bar styles */
+/* Search bar container */
 .searchbar-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   flex: 1 1 auto;
   min-width: 120px;
   max-width: 300px;
-  display: flex;
-  justify-content: flex-end;
 }
 
-.searchbar-container form {
-  flex: 1;
-  min-width: 100px;
+/* Full search form (default shown) */
+.searchbar-full {
   display: flex;
   background-color: #e4c594;
   height: 44px;
   border-radius: 5px;
   align-items: center;
+  flex: 1;
+  min-width: 100px;
 }
 
-.searchbar-container input[type="search"] {
+.searchbar-full input[type="search"] {
   all: unset;
   flex: 1;
   font-size: 1rem;
@@ -136,12 +121,12 @@ main {
   border-radius: 4px 0 0 4px;
 }
 
-.searchbar-container input::placeholder {
+.searchbar-full input::placeholder {
   color: #ac792a;
   opacity: 0.7;
 }
 
-.searchbar-container button {
+.searchbar-full button {
   all: unset;
   cursor: pointer;
   width: 44px;
@@ -152,15 +137,41 @@ main {
   border-radius: 0 4px 4px 0;
 }
 
-.searchbar-container svg {
+.searchbar-full svg {
   color: #ac792a;
   fill: currentColor;
   width: 24px;
   height: 24px;
 }
 
-/* Responsive tweaks for small screens */
-@media (max-width: 480px) {
+/* Icon-only fallback: hidden by default */
+.searchbar-icon {
+  display: none;
+  all: unset;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background-color: #e4c594;
+  transition: background-color 0.3s;
+}
+
+.searchbar-icon svg {
+  width: 24px;
+  height: 24px;
+  color: #ac792a;
+  fill: currentColor;
+}
+
+.searchbar-icon:hover {
+  background-color: #d4b07c;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
   .site-name {
     font-size: 1.4rem;
   }
@@ -171,35 +182,26 @@ main {
   }
 
   .searchbar-container {
-    max-width: 30%;
-  }
-
-  .searchbar-container form {
-    flex: 1;
-    min-width: 100px;
     max-width: 100%;
-    /* new: ensures it doesn't overflow the container */
+  }
+
+  /* Show only the icon version */
+  .searchbar-full {
+    display: none;
+  }
+
+  .searchbar-icon {
     display: flex;
-    background-color: #e4c594;
-    height: 36px;
-    border-radius: 5px;
-    align-items: center;
   }
 
-
-  .searchbar-container input[type="search"] {
-    font-size: 0.9rem;
-    padding: 4px 8px;
-  }
-
-  .searchbar-container svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .searchbar-container button {
+  .searchbar-icon {
     width: 36px;
     height: 36px;
+  }
+
+  .searchbar-icon svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
