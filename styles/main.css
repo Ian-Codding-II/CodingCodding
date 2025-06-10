@@ -73,7 +73,7 @@ main {
   color: #5e4434;
   font-weight: bold;
   text-decoration: none;
-  border-bottom: 0px solid transparent;
+  border-bottom: 3px solid transparent;
   padding-bottom: 0px;
   transition: border-color 0.3s, color 0.3s;
   position: relative;
