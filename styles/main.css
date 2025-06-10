@@ -145,7 +145,7 @@ main {
 }
 
 /* Icon-only fallback: hidden by default */
-/* .searchbar-icon {
+.searchbar-icon {
   display: none;
   all: unset;
   cursor: pointer;
@@ -168,7 +168,7 @@ main {
 
 .searchbar-icon:hover {
   background-color: #d4b07c;
-} */
+}
 
 /* Responsive tweaks */
 @media (max-width: 600px) {
