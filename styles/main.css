@@ -145,13 +145,12 @@ main {
 }
 
 /* Icon-only fallback: hidden by default */
-/* .searchbar-icon {
-  display: none;
+.searchbar-icon {
+  display: none; /* Hidden by default — shown via media query */
   all: unset;
   cursor: pointer;
   width: 44px;
   height: 44px;
-  display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 6px;
@@ -164,11 +163,11 @@ main {
   height: 24px;
   color: #ac792a;
   fill: currentColor;
-} */
+}
 
-/* .searchbar-icon:hover {
+.searchbar-icon:hover {
   background-color: #d4b07c;
-} */
+}
 
 /* Responsive tweaks */
 @media (max-width: 600px) {
@@ -185,30 +184,21 @@ main {
     max-width: 100%;
   }
 
-  /* Show only the icon version */
+  /* Hide full search form */
   .searchbar-full {
     display: none;
   }
 
+  /* Show icon-only search */
   .searchbar-icon {
-  display: none;
-  all: unset;
-  cursor: pointer;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  background-color: #e4c594;
-  transition: background-color 0.3s;
+    display: flex;
+    width: 36px;
+    height: 36px;
   }
 
   .searchbar-icon svg {
     width: 20px;
     height: 20px;
-    color: #ac792a;
-    fill: currentColor;
   }
 }
 
