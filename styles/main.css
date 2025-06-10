@@ -166,9 +166,9 @@ main {
   fill: currentColor;
 } */
 
-.searchbar-icon:hover {
+/* .searchbar-icon:hover {
   background-color: #d4b07c;
-}
+} */
 
 /* Responsive tweaks */
 @media (max-width: 600px) {
