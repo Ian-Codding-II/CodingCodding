@@ -25,7 +25,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  /* Prevent wrapping to keep everything in one line */
+  flex-wrap: nowrap;
   padding: 10px 20px;
   background-color: #ac792a;
   gap: 10px;
@@ -89,9 +90,10 @@ main {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  flex: 1 1 auto;
+  flex: 0 0 auto; /* Don't grow or shrink */
   min-width: 120px;
   max-width: 300px;
+  margin-left: auto; /* Push to the right */
 }
 
 /* Full search form (shown on large screens only) */
@@ -189,6 +191,7 @@ main {
     display: flex;
     width: 36px;
     height: 36px;
+    margin-left: 8px; /* optional, adjust spacing */
   }
 
   .searchbar-icon svg {
