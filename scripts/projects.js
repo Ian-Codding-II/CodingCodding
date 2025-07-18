@@ -5,20 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'Creating detailed 3D models for games and animations using Blender.',
       status: 'in-progress',
       thumbnail: 'assets/images/project1.jpg',
-      lastUpdated: '2025-07-15',
+      lastUpdated: '2025-07-18',
       updates: [
-        '2025-07-15: Completed character model for game prototype.',
-        '2025-07-01: Started texturing environment assets.'
+        '2025-07-18: Started brainstorming posible game setups for implementation.',
       ]
     },
     {
       title: 'Design Thinking',
       description: 'Applying design thinking principles to solve user-centered problems.',
       status: 'completed',
-      thumbnail: 'assets/images/project2.jpg',
+      thumbnail: 'assets/images/designThinking.jpg',
       lastUpdated: '2025-06-20',
       updates: [
-        '2025-06-20: Presented final design solution to client.',
+        '2025-06-20: Presented final design solution.',
         '2025-06-10: Conducted user testing sessions.'
       ]
     },
@@ -27,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       description: 'Building web apps and solving algorithmic challenges with JavaScript.',
       status: 'in-progress',
       thumbnail: 'assets/images/project3.jpg',
-      lastUpdated: '2025-07-10',
+      lastUpdated: '2025-06-10',
       updates: [
         '2025-07-10: Implemented new feature for web app.',
         '2025-07-05: Solved LeetCode medium problem.'
