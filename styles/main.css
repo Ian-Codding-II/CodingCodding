@@ -141,9 +141,9 @@ main {
   height: 24px;
 }
 
-/* Icon-only fallback (hidden by default) */
-.searchbar-icon {
-  display: none !important; /* Explicitly hidden on all screens by default */
+/* Icon-only fallback (hidden on large screens) */
+.searchbar-container .searchbar-icon {
+  display: none !important; /* High specificity to ensure icon is hidden on large screens */
   all: unset;
   cursor: pointer;
   width: 44px;
@@ -155,14 +155,14 @@ main {
   transition: background-color 0.3s;
 }
 
-.searchbar-icon svg {
+.searchbar-container .searchbar-icon svg {
   width: 24px;
   height: 24px;
   color: #ac792a;
   fill: currentColor;
 }
 
-.searchbar-icon:hover {
+.searchbar-container .searchbar-icon:hover {
   background-color: #d4b07c;
 }
 
@@ -183,18 +183,18 @@ main {
 
   /* Hide full form on small screens */
   .searchbar-full {
-    display: none;
+    display: none !important; /* Ensure form is hidden on small screens */
   }
 
   /* Show icon only on small screens */
-  .searchbar-icon {
-    display: flex !important; /* Override default to show on small screens */
+  .searchbar-container .searchbar-icon {
+    display: flex !important; /* Override to show icon on small screens */
     width: 36px;
     height: 36px;
-    margin-left: 8px; /* optional, adjust spacing */
+    margin-left: 8px; /* Optional, adjust spacing */
   }
 
-  .searchbar-icon svg {
+  .searchbar-container .searchbar-icon svg {
     width: 20px;
     height: 20px;
   }
