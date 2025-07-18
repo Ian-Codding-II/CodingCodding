@@ -141,7 +141,7 @@ main {
   height: 24px;
 }
 
-/* Icon-only fallback (hidden by default) */
+/* Icon-only fallback (hidden by default, shown on small screens) */
 .searchbar-icon {
   display: none;
   all: unset;
