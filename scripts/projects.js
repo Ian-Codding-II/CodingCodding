@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
       ]
     },
     {
-      title: 'Design Thinking',
+      title: 'Design Thinking and impellers',
       description: 'Applying design thinking principles to solve user-centered problems.',
       status: 'completed',
-      thumbnail: 'assets/images/designThinking.jpg',
+      thumbnail: 'assets/images/designThinking.png',
       lastUpdated: '2025-06-20',
       updates: [
         '2025-06-20: Presented final design solution.',
