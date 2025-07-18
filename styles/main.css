@@ -141,9 +141,9 @@ main {
   height: 24px;
 }
 
-/* Icon-only fallback (hidden by default, shown on small screens) */
+/* Icon-only fallback (hidden by default) */
 .searchbar-icon {
-  display: none;
+  display: none !important; /* Explicitly hidden on all screens by default */
   all: unset;
   cursor: pointer;
   width: 44px;
@@ -188,7 +188,7 @@ main {
 
   /* Show icon only on small screens */
   .searchbar-icon {
-    display: flex;
+    display: flex !important; /* Override default to show on small screens */
     width: 36px;
     height: 36px;
     margin-left: 8px; /* optional, adjust spacing */
