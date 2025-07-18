@@ -179,6 +179,7 @@ main {
 
   .searchbar-container {
     max-width: 100%;
+    margin-left: 0; /* Remove margin to reduce space */
   }
 
   /* Hide full form on small screens */
@@ -191,12 +192,18 @@ main {
     display: flex !important; /* Override to show icon on small screens */
     width: 36px;
     height: 36px;
-    margin-left: 8px; /* Optional, adjust spacing */
+    margin-left: 4px; /* Reduced margin for closer positioning */
   }
 
   .searchbar-container .searchbar-icon svg {
     width: 20px;
     height: 20px;
+  }
+
+  /* Adjust topbar for very small screens to minimize spacing */
+  .topbar {
+    gap: 5px; /* Reduce gap between elements */
+    padding: 8px 10px; /* Reduce padding for tighter layout */
   }
 }
 
