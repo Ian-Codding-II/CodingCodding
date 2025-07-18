@@ -25,7 +25,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* Prevent wrapping to keep everything in one line */
   flex-wrap: nowrap;
   padding: 10px 20px;
   background-color: #ac792a;
@@ -61,6 +60,11 @@ main {
   margin-bottom: 4px;
 }
 
+/* Navigation container */
+.nav-container {
+  position: relative;
+}
+
 /* Nav styles */
 .main-nav {
   display: flex;
@@ -85,15 +89,49 @@ main {
   color: #fff;
 }
 
+/* Hamburger menu button (hidden by default) */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  width: 36px;
+  height: 36px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 3px;
+  background-color: #5e4434;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
 /* Search container */
 .searchbar-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  flex: 0 0 auto; /* Don't grow or shrink */
+  flex: 0 0 auto;
   min-width: 120px;
   max-width: 300px;
-  margin-left: auto; /* Push to the right */
+  margin-left: auto;
 }
 
 /* Full search form (shown on large screens only) */
@@ -143,7 +181,7 @@ main {
 
 /* Icon-only fallback (hidden on large screens) */
 .searchbar-container .searchbar-icon {
-  display: none !important; /* High specificity to ensure icon is hidden on large screens */
+  display: none !important;
   all: unset;
   cursor: pointer;
   width: 44px;
@@ -172,38 +210,59 @@ main {
     font-size: 1.4rem;
   }
 
+  /* Tighten topbar layout */
+  .topbar {
+    gap: 5px;
+    padding: 8px 10px;
+  }
+
+  /* Hide navigation links and show hamburger */
   .main-nav {
-    gap: 10px;
-    font-size: 0.9rem;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ac792a;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 2px solid #5e4434;
+    z-index: 10;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  .main-nav a {
+    padding: 8px 0;
+  }
+
+  .hamburger {
+    display: flex;
   }
 
   .searchbar-container {
     max-width: 100%;
-    margin-left: 0; /* Remove margin to reduce space */
+    margin-left: 0;
   }
 
   /* Hide full form on small screens */
   .searchbar-full {
-    display: none !important; /* Ensure form is hidden on small screens */
+    display: none !important;
   }
 
   /* Show icon only on small screens */
   .searchbar-container .searchbar-icon {
-    display: flex !important; /* Override to show icon on small screens */
+    display: flex !important;
     width: 36px;
     height: 36px;
-    margin-left: 4px; /* Reduced margin for closer positioning */
+    margin-left: 4px;
   }
 
   .searchbar-container .searchbar-icon svg {
     width: 20px;
     height: 20px;
-  }
-
-  /* Adjust topbar for very small screens to minimize spacing */
-  .topbar {
-    gap: 5px; /* Reduce gap between elements */
-    padding: 8px 10px; /* Reduce padding for tighter layout */
   }
 }
 
