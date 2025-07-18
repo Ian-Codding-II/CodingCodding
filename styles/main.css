@@ -23,7 +23,7 @@ main {
 /* Top bar layout */
 .topbar {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: nowrap;
   padding: 10px 20px;
@@ -32,19 +32,24 @@ main {
   border-bottom: 2px solid #5e4434;
 }
 
+/* Logo, title, and nav container */
+.logo-title-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
 /* Logo and site title */
 .logo-title {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-shrink: 0;
-  width: 200px; /* Fixed width for logo + title consistency */
 }
 
 /* Navigation container */
 .nav-container {
   position: relative;
-  flex-shrink: 0;
 }
 
 /* Nav styles */
@@ -103,6 +108,23 @@ main {
 
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Logo styling */
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Site title styling */
+.site-name {
+  font-size: 1.6rem; /* Adjusted to match logo height visually */
+  line-height: 40px; /* Matches logo height */
+  font-weight: bold;
+  color: #5e4434;
+  white-space: nowrap;
 }
 
 /* Search container */
@@ -190,6 +212,7 @@ main {
 @media (max-width: 600px) {
   .site-name {
     font-size: 1.4rem;
+    line-height: 40px; /* Maintain consistent height with logo */
   }
 
   /* Reorder topbar for hamburger to be leftmost */
@@ -199,12 +222,13 @@ main {
     padding: 8px 10px;
   }
 
-  .nav-container {
-    order: -1; /* Move hamburger to the left */
+  .logo-title-nav {
+    flex-direction: row;
+    align-items: center;
   }
 
-  .logo-title {
-    width: 200px; /* Consistent width for logo + title */
+  .nav-container {
+    order: -1; /* Move hamburger to the left */
   }
 
   /* Hide navigation links and show hamburger */
