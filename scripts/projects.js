@@ -31,7 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
         '2025-07-10: Implemented new feature for web app.',
         '2025-07-05: Solved LeetCode medium problem.'
       ]
-    }
+    },
+        {
+      title: 'Tetrix Game',
+      description: 'Fun little tetris off shoot.',
+      status: 'completed',
+      thumbnail: 'assets/images/tetris.png',
+      lastUpdated: '2025-07-29',
+      updates: [
+        '2025-07-29: Pushed all the code and relative information to github at https://github.com/Ian-Codding-II/TetrixGame',
+      ]
+    },
   ];
 
   const projectGrid = document.getElementById('project-grid');
