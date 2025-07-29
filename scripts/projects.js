@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
       thumbnail: 'assets/images/project1.jpg',
       lastUpdated: '2025-07-18',
       updates: [
-        '2025-07-18: Started brainstorming posible game setups for implementation.',
+        '2025-07-18: Started brainstorming posible game setups for implementation.'
       ]
     },
     {
@@ -32,17 +32,23 @@ document.addEventListener('DOMContentLoaded', () => {
         '2025-07-05: Solved LeetCode medium problem.'
       ]
     },
-        {
+    {
       title: 'Tetrix Game',
-      description: 'Fun little tetris off shoot.',
+      description: 'Fun little tetris offshoot.',
       status: 'completed',
       thumbnail: 'assets/images/tetris.png',
       lastUpdated: '2025-07-29',
       updates: [
-        '2025-07-29: Pushed all the code and relative information to github at https://github.com/Ian-Codding-II/TetrixGame',
+        '2025-07-29: Pushed all the code and relative information to github at https://github.com/Ian-Codding-II/TetrixGame'
       ]
-    },
+    }
   ];
+
+  // Function to convert URLs to clickable links
+  function makeLinksClickable(text) {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+    return text.replace(urlRegex, '<a href="$1" target="_blank" rel="noopener" class="update-link">$1</a>');
+  }
 
   const projectGrid = document.getElementById('project-grid');
   const modal = document.getElementById('project-modal');
@@ -74,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (project) {
         modalTitle.textContent = project.title;
         modalDescription.textContent = project.description;
-        modalUpdates.innerHTML = project.updates.map(update => `<li>${update}</li>`).join('');
+        modalUpdates.innerHTML = project.updates.map(update => `<li>${makeLinksClickable(update)}</li>`).join('');
         modal.style.display = 'flex';
       }
     }
